@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi CV - Mauro Infante</title>
+  <title>Mi CV - MAURO INFANTE</title>
   <style>
-    /* Estilos básicos */
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f9;
@@ -15,23 +14,8 @@
       align-items: center;
       text-align: center;
       padding: 20px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .profile-image {
-    border-radius: 50%; /* Hace la imagen circular */
-    width: 150px; /* Ajusta el tamaño de la imagen */
-    height: 150px; /* Mantiene la proporción circular */
-    object-fit: cover; /* Asegura que la imagen se recorte bien */
-    margin: 20px auto; /* Centra la imagen en la página */
-    display: block; /* Hace que el elemento de la imagen se comporte como un bloque */
-  }
-    /* Modo oscuro */
-    body.dark-mode {
-      background-color: #121212;
-      color: #e0e0e0;
     }
 
-    /* Imagen de perfil */
     .profile-image {
       border-radius: 50%;
       width: 150px;
@@ -40,34 +24,15 @@
       margin-bottom: 15px;
     }
 
-    /* Encabezados */
     h1, h3 {
-      color: inherit;
+      color: #333;
     }
 
-    /* Información */
     .info {
       font-size: 1.1em;
       margin: 15px 0;
     }
 
-    /* Botón de modo oscuro */
-    .toggle-button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      border: none;
-      margin: 10px;
-      transition: background-color 0.3s;
-    }
-
-    .toggle-button:hover {
-      background-color: #45a049;
-    }
-
-    /* Botones de enlaces */
     .button {
       display: inline-block;
       background-color: #4CAF50;
@@ -82,80 +47,61 @@
       background-color: #45a049;
     }
 
-    /* Iconos de tecnologías */
     .tech-icons img {
       margin: 10px;
       width: 40px;
       height: 40px;
     }
 
-    /* Footer */
     footer a {
       color: #4CAF50;
       margin: 0 10px;
-      transition: color 0.3s;
-    }
-
-    body.dark-mode footer a {
-      color: #76c7c0;
     }
   </style>
 </head>
 <body>
-  <!-- Botón para cambiar de modo -->
-  <button class="toggle-button" onclick="toggleDarkMode()">Cambiar a Modo Oscuro</button>
-
-  <!-- Contenido del CV -->
+   
   <img src="perfil.jpg" alt="Foto de perfil" class="profile-image">
   <h1>Mauro Infante</h1>
-  <h3>Ingeniero Industrial | Enfocado en Aseguramiento de Calidad | En proceso para ser desarrollador web</h3>
+  <h3>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</h3>
 
   <div class="info">
-   <p>🌱 Aprendiendo <strong>machine learning</strong></p>
-   <p>🫂 Busco colaborar <strong>con otros creadores</strong></p>
-   <p>📫 Contáctame en maurofel36@gmail.com</p>
-   <p>📄 Revisa mi experiencia en <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" download>Descargar CV</a></p>
+   <p>🌱 Learning <strong>machine learning</strong></p>
+   <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
+   <p>📫 Contact me at maurofel36@gmail.com</p>
+   <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" download>Download CV</a></p>
  </div>
+ 
 
-  <h2>Tecnologías 🧑‍💻</h2>
+  <h2>Tecnologies 🧑‍💻</h2>
   <div class="tech-icons">
     <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg" alt="HTML5">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg" alt="Html5">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg" alt="Java">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg" alt="Mysql" />
   </div>
 
-  <h2>Mis estadísticas 🏆</h2>
+  <h2>My Stats 🏆</h2>
   <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=Maurux01&show_icons=true&locale=en&layout=compact" alt="Maurux01" /></p>
   <p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Maurux01&show_icons=true&locale=en" alt="Maurux01" /></p>
   <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Maurux01" alt="Maurux01" /></p>
 
+
   <p align="right">
    <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
-  </p>
+ </p>
  
-  <h2>Conecta conmigo 🤝🏻</h2>
+  <h2>Connect with me 🤝🏻</h2>
   <footer>
     <a href="https://linkedin.com/in/infmauro" target="_blank">LinkedIn</a> | 
     <a href="https://github.com/Maurux01">GitHub</a>
   </footer>
 
-  <script>
-    // Función para alternar entre modo claro y oscuro
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      const button = document.querySelector(".toggle-button");
-      if (document.body.classList.contains("dark-mode")) {
-        button.textContent = "Cambiar a Modo Claro";
-      } else {
-        button.textContent = "Cambiar a Modo Oscuro";
-      }
-    }
-  </script>
 </body>
 </html>
+
