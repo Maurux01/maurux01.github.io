@@ -14,6 +14,7 @@
       align-items: center;
       text-align: center;
       padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .profile-image {
@@ -22,10 +23,18 @@
       height: 150px;
       object-fit: cover;
       margin-bottom: 15px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 1s, transform 1s;
+    }
+
+    .profile-image.show {
+      opacity: 1;
+      transform: scale(1);
     }
 
     h1, h3 {
-      color: #333;
+      color: inherit;
     }
 
     .info {
@@ -41,6 +50,7 @@
       margin: 10px;
       border-radius: 5px;
       text-decoration: none;
+      transition: background-color 0.3s;
     }
 
     .button:hover {
@@ -51,27 +61,58 @@
       margin: 10px;
       width: 40px;
       height: 40px;
+      transition: transform 0.3s;
+    }
+
+    .tech-icons img:hover {
+      transform: scale(1.2);
     }
 
     footer a {
       color: #4CAF50;
       margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #333;
+    }
+
+    /* Modo oscuro */
+    .dark-mode {
+      background-color: #333;
+      color: #f4f4f9;
+    }
+
+    .dark-mode .button {
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .dark-mode footer a {
+      color: #f4f4f9;
+    }
+
+    .dark-mode footer a:hover {
+      color: #ddd;
     }
   </style>
 </head>
 <body>
+  
+  <button id="toggle-theme" class="button">Modo Oscuro</button>
    
-  <img src="perfil.jpg" alt="Foto de perfil" class="profile-image">
+  <img src="perfil.jpg" alt="Foto de perfil" class="profile-image" id="profileImage">
   <h1>Mauro Infante</h1>
   <h3>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</h3>
 
   <div class="info">
-   <p>🌱 Learning <strong>machine learning</strong></p>
-   <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
-   <p>📫 Contact me at maurofel36@gmail.com</p>
-   <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" download>Download CV</a></p>
- </div>
- 
+    <p>🌱 Learning <strong>machine learning</strong></p>
+    <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
+    <p>📫 Contact me at maurofel36@gmail.com</p>
+    <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" download>Download CV</a></p>
+  </div>
+  
 
   <h2>Tecnologies 🧑‍💻</h2>
   <div class="tech-icons">
@@ -93,15 +134,36 @@
 
 
   <p align="right">
-   <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
- </p>
- 
+    <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
+  </p>
+  
   <h2>Connect with me 🤝🏻</h2>
   <footer>
-    <a href="https://linkedin.com/in/infmauro" target="_blank">LinkedIn</a> | 
-    <a href="https://github.com/Maurux01">GitHub</a>
+    <a href="https://linkedin.com/in/infmauro" target="_blank" class="external-link">LinkedIn</a> | 
+    <a href="https://github.com/Maurux01" target="_blank" class="external-link">GitHub</a>
   </footer>
 
+  <script>
+    // Animación al cargar la página
+    window.addEventListener('load', () => {
+      document.getElementById('profileImage').classList.add('show');
+    });
+
+    // Modo oscuro
+    const toggleButton = document.getElementById('toggle-theme');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleButton.textContent = 
+        document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+    });
+
+    // Pop-up de confirmación en enlaces externos
+    document.querySelectorAll('.external-link').forEach(link => {
+      link.addEventListener('click', (event) => {
+        const confirmacion = confirm('Estás a punto de salir del sitio. ¿Deseas continuar?');
+        if (!confirmacion) event.preventDefault();
+      });
+    });
+  </script>
 </body>
 </html>
-
