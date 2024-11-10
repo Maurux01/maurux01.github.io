@@ -1,107 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi CV - MAURO INFANTE</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+"use client"
+
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Github, Linkedin, Mail, FileText } from 'lucide-react'
+
+const technologies = [
+  { name: 'Angular', src: 'https://angular.io/assets/images/logos/angular/angular.svg' },
+  { name: 'CSS3', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg' },
+  { name: 'JavaScript', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' },
+  { name: 'HTML5', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg' },
+  { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
+  { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg' },
+  { name: 'React', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg' },
+  { name: 'Java', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg' },
+  { name: 'MySQL', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg' },
+]
+
+export default function PersonalCVPresentation() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
     }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-    .profile-image {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
+  return (
+    <div className={`min-h-screen ${scrolled ? 'bg-blue-50' : 'bg-blue-100'} transition-colors duration-500`}>
+      <header className="bg-gradient-to-r from-orange-400 to-pink-500 text-white text-center py-16 shadow-lg relative z-10">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perfil.jpg-3qI6BfhFqG3rP67BQ2lVqTiIfyP4El.jpeg"
+          alt="Mauro Infante"
+          width={150}
+          height={150}
+          className="mx-auto rounded-full border-4 border-white shadow-lg mb-4 object-cover"
+        />
+        <h1 className="text-5xl font-bold mb-2 uppercase tracking-wider animate-fade-in">Mauro Infante</h1>
+        <p className="text-xl opacity-80 mt-2 animate-fade-in-delayed">
+          Industrial Engineer | Focus on Quality Assurance | In process to be web developer
+        </p>
+      </header>
 
-    h1, h3 {
-      color: #333;
-    }
+      <section id="about" className="bg-white shadow-md rounded-lg -mt-12 mx-4 p-8 text-center mb-8">
+        <h2 className="text-4xl font-bold mb-4 text-blue-800 uppercase tracking-wide">Sobre Mí</h2>
+        <ul className="text-lg text-gray-700 max-w-2xl mx-auto space-y-2">
+          <li>🌱 Learning <strong>machine learning</strong></li>
+          <li>🫂 I seek to collaborate <strong>with other creators</strong></li>
+          <li>
+            📫 Contact me at{' '}
+            <Link href="mailto:maurofel36@gmail.com" className="text-blue-600 hover:underline">
+              maurofel36@gmail.com
+            </Link>
+          </li>
+          <li>
+            📄 Check out my experience:{' '}
+            <Link href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" className="text-blue-600 hover:underline">
+              Download CV
+            </Link>
+          </li>
+        </ul>
+      </section>
 
-    .info {
-      font-size: 1.1em;
-      margin: 15px 0;
-    }
+      <section className="bg-blue-50 rounded-lg mx-4 p-8 text-center mb-8">
+        <h2 className="text-4xl font-bold mb-6 text-blue-900 uppercase tracking-wide animate-bounce">Technologies 🧑‍💻</h2>
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          {technologies.map((tech) => (
+            <div key={tech.name} className="bg-white p-4 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <Image
+                src={tech.src}
+                alt={tech.name}
+                width={60}
+                height={60}
+                className="mx-auto"
+              />
+              <p className="mt-2 text-sm font-semibold">{tech.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    .button {
-      display: inline-block;
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      margin: 10px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+      <section className="bg-gradient-to-r from-orange-400 to-pink-500 rounded-lg mx-4 p-8 text-center mb-8 text-white">
+        <h2 className="text-4xl font-bold mb-6 uppercase tracking-wide animate-bounce">My GitHub Stats 🏆</h2>
+        <div className="flex flex-col items-center gap-8 mt-8">
+          <Image
+            src={`https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Maurux01&layout=donut&theme=radical&hide_border=true&cache_seconds=1800`}
+            alt="Most used languages"
+            width={600}
+            height={235}
+            className="bg-white rounded-lg shadow-lg max-w-full"
+          />
+          <Image
+            src={`https://github-readme-stats-sigma-five.vercel.app/api?username=Maurux01&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true&cache_seconds=1800`}
+            alt="GitHub stats"
+            width={600}
+            height={235}
+            className="bg-white rounded-lg shadow-lg max-w-full"
+          />
+          <Image
+            src={`https://github-readme-streak-stats.herokuapp.com/?user=Maurux01&theme=radical&hide_border=true&cache_seconds=1800`}
+            alt="GitHub streak stats"
+            width={600}
+            height={235}
+            className="bg-white rounded-lg shadow-lg max-w-full"
+          />
+        </div>
+      </section>
 
-    .button:hover {
-      background-color: #45a049;
-    }
+      <section className="bg-blue-50 rounded-lg mx-4 p-8 text-center mb-8">
+        <h2 className="text-4xl font-bold mb-6 text-blue-900 uppercase tracking-wide animate-bounce">My Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+          {[
+            { title: "Project 1", description: "An amazing app that solves a common problem." },
+            { title: "Project 2", description: "Exploring JavaScript functionalities to create something interactive." },
+            { title: "Project 3", description: "A dynamic web page with integrated backend." }
+          ].map((project, index) => (
+            <div key={index} className="bg-gradient-to-r from-orange-400 to-pink-500 text-white p-6 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-64">
+              <h3 className="text-2xl font-bold mb-4 uppercase">{project.title}</h3>
+              <p className="text-lg opacity-90">{project.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    .tech-icons img {
-      margin: 10px;
-      width: 40px;
-      height: 40px;
-    }
+      <footer className="bg-gray-800 text-white text-center py-6 mt-12">
+        <h2 className="text-2xl font-semibold mb-4">Connect with me 🤝🏻</h2>
+        <div className="flex justify-center space-x-4 mb-4">
+          <Link href="https://www.linkedin.com/in/infmauro" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">
+            <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+          </Link>
+          <Link href="https://github.com/Maurux01" target="_blank" rel="noopener noreferrer" className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">
+            <Github className="mr-2 h-4 w-4" /> GitHub
+          </Link>
+        </div>
+        <p className="text-lg opacity-80 hover:opacity-100 transition-opacity duration-300">
+          ¡Gracias por visitar mi página! Conéctate conmigo en mis redes sociales.
+        </p>
+        <div className="mt-4">
+          <Image
+            src={`https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat&cache_seconds=1800`}
+            alt="Profile views"
+            width={120}
+            height={20}
+            className="inline"
+          />
+        </div>
+      </footer>
 
-    footer a {
-      color: #4CAF50;
-      margin: 0 10px;
-    }
-  </style>
-</head>
-<body>
-   
-  <img src="perfil.jpg" alt="Foto de perfil" class="profile-image">
-  <h1>Mauro Infante</h1>
-  <h3>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</h3>
-
-  <div class="info">
-   <p>🌱 Learning <strong>machine learning</strong></p>
-   <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
-   <p>📫 Contact me at maurofel36@gmail.com</p>
-   <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" download>Download CV</a></p>
- </div>
- 
-
-  <h2>Tecnologies 🧑‍💻</h2>
-  <div class="tech-icons">
-    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg" alt="Html5">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React" />
-    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg" alt="Java">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg" alt="Mysql" />
-  </div>
-
-  <h2>My Stats 🏆</h2>
-  <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=Maurux01&show_icons=true&locale=en&layout=compact" alt="Maurux01" /></p>
-  <p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Maurux01&show_icons=true&locale=en" alt="Maurux01" /></p>
-  <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Maurux01" alt="Maurux01" /></p>
-
-
-  <p align="right">
-   <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
- </p>
- 
-  <h2>Connect with me 🤝🏻</h2>
-  <footer>
-    <a href="https://linkedin.com/in/infmauro" target="_blank">LinkedIn</a> | 
-    <a href="https://github.com/Maurux01">GitHub</a>
-  </footer>
-
-</body>
-</html>
-
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fade-in {
+          animation: fadeIn 2s ease-out;
+        }
+        .animate-fade-in-delayed {
+          animation: fadeIn 3s ease-out;
+        }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-bounce {
+          animation: bounce 2s infinite;
+        }
+      `}</style>
+    </div>
+  )
+}
