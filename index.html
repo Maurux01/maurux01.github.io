@@ -1,101 +1,273 @@
-"options": {
-  "outputPath": "maurux01.github.io",
-  "baseHref": "/maurux01.github.io/",
-ng build --prod --base-href "https://maurux01.github.io/maurux01.github.io/"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Personal - Mauro Infante</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
 
-npm install -g angular-cli-ghpages
-ngh --dir=dist/maurux01.github.io
+        /* Root container */
+        #root {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
 
-https://maurux01.github.io/maurux01.github.io
-/
+        /* Header */
+        header {
+            background: linear-gradient(45deg, #e54219b2, #4a57e7);
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
 
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
 
-"use client"
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-import { Component, HostListener, OnInit } from '@angular/core';
+        header p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
 
-interface Technology {
-   name: string;
-   src: string;
-}
+        /* About section */
+        #about {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: -40px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-@Component({
-   selector: 'app-personal-cv-presentation',
-   template: `
-    <div [ngClass]="{'bg-blue-50': scrolled, 'bg-blue-100': !scrolled}" class="min-h-screen transition-colors duration-500">
-      <header class="bg-gradient-to-r from-orange-400 to-pink-500 text-white text-center py-16 shadow-lg relative z-10">
-        <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perfil.jpg-3qI6BfhFqG3rP67BQ2lVqTiIfyP4El.jpeg"
-          alt="Mauro Infante"
-          class="mx-auto rounded-full border-4 border-white shadow-lg mb-4 object-cover"
-          width="150" height="150"
-        />
-        <h1 class="text-5xl font-bold mb-2 uppercase tracking-wider animate-fade-in">Mauro Infante</h1>
-        <p class="text-xl opacity-80 mt-2 animate-fade-in-delayed">
-          Industrial Engineer | Focus on Quality Assurance | In process to be web developer
-        </p>
-      </header>
+        #about h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
-      <section id="about" class="bg-white shadow-md rounded-lg -mt-12 mx-4 p-8 text-center mb-8">
-        <h2 class="text-4xl font-bold mb-4 text-blue-800 uppercase tracking-wide">Sobre Mí</h2>
-        <ul class="text-lg text-gray-700 max-w-2xl mx-auto space-y-2">
-          <li>🌱 Learning <strong>machine learning</strong></li>
-          <li>🫂 I seek to collaborate <strong>with other creators</strong></li>
-          <li>📫 Contact me at <a href="mailto:maurofel36@gmail.com" class="text-blue-600 hover:underline">maurofel36@gmail.com</a></li>
-          <li>📄 Check out my experience: <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" class="text-blue-600 hover:underline">Download CV</a></li>
-        </ul>
-      </section>
+        #about p {
+            font-size: 18px;
+            color: #555;
+        }
 
-      <section class="bg-blue-50 rounded-lg mx-4 p-8 text-center mb-8">
-        <h2 class="text-4xl font-bold mb-6 text-blue-900 uppercase tracking-wide animate-bounce">Technologies 🧑‍💻</h2>
-        <div class="flex flex-wrap justify-center gap-4 mt-8">
-          <div *ngFor="let tech of technologies" class="bg-white p-4 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <img [src]="tech.src" [alt]="tech.name" class="mx-auto" width="60" height="60"/>
-            <p class="mt-2 text-sm font-semibold">{{ tech.name }}</p>
-          </div>
-        </div>
-      </section>
+        #about a {
+            color: #1e90ff;
+            font-weight: bold;
+        }
 
-      <footer class="bg-gray-800 text-white text-center py-6 mt-12">
-        <h2 class="text-2xl font-semibold mb-4">Connect with me 🤝🏻</h2>
-        <div class="flex justify-center space-x-4 mb-4">
-          <a href="https://www.linkedin.com/in/infmauro" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">
-            <i class="fab fa-linkedin mr-2 h-4 w-4"></i> LinkedIn
-          </a>
-          <a href="https://github.com/Maurux01" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">
-            <i class="fab fa-github mr-2 h-4 w-4"></i> GitHub
-          </a>
-        </div>
-        <p class="text-lg opacity-80 hover:opacity-100 transition-opacity duration-300">
-          ¡Gracias por visitar mi página! Conéctate conmigo en mis redes sociales.
-        </p>
-      </footer>
-    </div>
-  `,
-   styleUrls: ['./personal-cv-presentation.component.css']
-})
-export class PersonalCvPresentationComponent implements OnInit {
-   scrolled = false;
+        /* Technologies section */
+        #technologies {
+            background-color: #eaf4fc;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-   technologies: Technology[] = [
-      { name: 'Angular', src: 'https://angular.io/assets/images/logos/angular/angular.svg' },
-      { name: 'CSS3', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg' },
-      { name: 'JavaScript', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' },
-      { name: 'HTML5', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg' },
-      { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
-      { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg' },
-      { name: 'React', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg' },
-      { name: 'Java', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg' },
-      { name: 'MySQL', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg' },
-   ];
+        #technologies h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #003366;
+        }
 
-   constructor() { }
+        #technologies .tech-item {
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-   ngOnInit(): void { }
+        #technologies .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
 
-   @HostListener('window:scroll', [])
-   onWindowScroll() {
-      this.scrolled = window.scrollY > 50;
-   }
-}
+        #technologies img {
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+        }
 
+        #technologies p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Stats section */
+        #stats {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #stats img {
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        footer a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Icon style */
+        footer a img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        // Datos de las tecnologías
+        const technologies = [
+            { name: 'Angular', src: 'https://angular.io/assets/images/logos/angular/angular.svg' },
+            { name: 'CSS3', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg' },
+            { name: 'JavaScript', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' },
+            { name: 'HTML5', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg' },
+            { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
+            { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg' },
+            { name: 'React', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg' },
+            { name: 'Java', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg' },
+            { name: 'MySQL', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg' },
+        ];
+
+        // Renderizado de componentes
+        function renderPersonalCV() {
+            const root = document.getElementById('root');
+            
+            // Header
+            const header = document.createElement('header');
+            header.innerHTML = `
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perfil.jpg-3qI6BfhFqG3rP67BQ2lVqTiIfyP4El.jpeg" alt="Mauro Infante">
+                <h1>Mauro Infante</h1>
+               <p class="text-xl opacity-80 mt-2 animate-fade-in-delayed">
+   <strong>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</strong>
+</p>
+            `;
+            root.appendChild(header);
+
+            // About Section
+            const aboutSection = document.createElement('section');
+            aboutSection.id = "about";
+            aboutSection.innerHTML = `
+                <h2>About me</h2>
+                <div class="info">
+                    <p>🌱 Learning <strong>machine learning</strong></p>
+                    <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
+                    <p>📫 Contact me at <a href="mailto:maurofel36@gmail.com">maurofel36@gmail.com</a></p>
+                    <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" target="_blank">Download CV</a></p>
+                </div>
+            `;
+            root.appendChild(aboutSection);
+
+            // Technologies Section
+            const techSection = document.createElement('section');
+            techSection.id = "technologies";
+            techSection.innerHTML = `
+                <h2>Tecnologies 🧑‍💻</h2>
+                <div class="tech-container"></div>
+            `;
+            const techContainer = techSection.querySelector('.tech-container');
+            technologies.forEach(tech => {
+                const techItem = document.createElement('div');
+                techItem.className = 'tech-item';
+                techItem.innerHTML = `
+                    <img src="${tech.src}" alt="${tech.name}">
+                    <p>${tech.name}</p>
+                `;
+                techContainer.appendChild(techItem);
+            });
+            root.appendChild(techSection);
+
+            // Stats Section
+            const statsSection = document.createElement('section');
+            statsSection.id = "stats";
+            statsSection.innerHTML = `
+<h2>My GitHub Stats 🏆</h2>
+
+<!-- Lenguajes más utilizados -->
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Maurux01&show_icons=true&locale=en&layout=compact&hide_border=true" alt="Maurux01" /></p>
+
+<!-- Estadísticas generales -->
+<p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Maurux01&show_icons=true&locale=en&count_private=true&hide_border=true" alt="Maurux01" /></p>
+
+<!-- Racha de contribuciones -->
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Maurux01&theme=radical&hide_border=true" alt="Maurux01" /></p>
+
+<!-- Contador de vistas del perfil -->
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
+</p>
+            `;
+            root.appendChild(statsSection);
+
+            // Footer Section
+            const footer = document.createElement('footer');
+            footer.innerHTML = `
+                <a href="https://linkedin.com/in/infmauro" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn">
+                    LinkedIn
+                </a> |
+                <a href="https://github.com/Maurux01" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                    GitHub
+                </a>
+            `;
+            root.appendChild(footer);
+        }
+
+        // Run the render function
+        renderPersonalCV();
+    </script>
+</body>
+</html>
