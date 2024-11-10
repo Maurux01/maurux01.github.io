@@ -17,7 +17,14 @@
       padding: 20px;
       transition: background-color 0.3s, color 0.3s;
     }
-
+    .profile-image {
+    border-radius: 50%; /* Hace la imagen circular */
+    width: 150px; /* Ajusta el tamaño de la imagen */
+    height: 150px; /* Mantiene la proporción circular */
+    object-fit: cover; /* Asegura que la imagen se recorte bien */
+    margin: 20px auto; /* Centra la imagen en la página */
+    display: block; /* Hace que el elemento de la imagen se comporte como un bloque */
+  }
     /* Modo oscuro */
     body.dark-mode {
       background-color: #121212;
