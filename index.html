@@ -172,6 +172,80 @@
             vertical-align: middle;
             margin-right: 8px;
         }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            #about h2 {
+                font-size: 24px;
+            }
+
+            #about p {
+                font-size: 16px;
+            }
+
+            #technologies h2 {
+                font-size: 24px;
+            }
+
+            #technologies .tech-item {
+                width: 90%; /* Allow tech items to scale down on smaller screens */
+                margin: 10px auto;
+            }
+
+            #technologies img {
+                width: 50px; /* Smaller icons on mobile */
+                height: 50px;
+            }
+
+            footer a {
+                font-size: 14px;
+            }
+
+            footer a img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #technologies .tech-item {
+                width: 100%; /* Full width for small screens */
+                margin: 5px 0;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            #about h2 {
+                font-size: 22px;
+            }
+
+            #about p {
+                font-size: 14px;
+            }
+
+            #stats img {
+                width: 100%; /* Full width for stats on mobile */
+                max-width: 100%; /* Ensure full width */
+            }
+
+            footer a {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -243,4 +317,15 @@
             const statsSection = document.createElement('section');
             statsSection.id = "stats";
             statsSection.innerHTML = `
-                <h2>My GitHub Stats
+                <h2>My GitHub Stats</h2>
+                <div class="github-stats">
+                    <!-- Add GitHub stats here -->
+                </div>
+            `;
+            root.appendChild(statsSection);
+        }
+
+        renderPersonalCV();
+    </script>
+</body>
+</html>
