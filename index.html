@@ -130,19 +130,9 @@
             text-align: center;
         }
 
-        /* Set a consistent width for all stats images */
         #stats img {
             margin: 10px;
             border-radius: 5px;
-            width: 100%; /* Set the width to 100% to make it responsive */
-            max-width: 600px; /* Limit max width for uniformity */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        /* Specific styling for "Most used languages" section */
-        #stats .top-langs {
-            width: 100%; /* Same width for top-langs */
-            max-width: 600px;
         }
 
         /* Footer */
@@ -173,7 +163,7 @@
             margin-right: 8px;
         }
 
-        /* Media Queries for Responsiveness */
+        /* Media Queries for Mobile Devices */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 28px;
@@ -195,14 +185,13 @@
                 font-size: 24px;
             }
 
-            #technologies .tech-item {
-                width: 90%; /* Allow tech items to scale down on smaller screens */
-                margin: 10px auto;
+            .tech-item {
+                width: 45%;
+                margin: 10px 5px;
             }
 
-            #technologies img {
-                width: 50px; /* Smaller icons on mobile */
-                height: 50px;
+            footer {
+                padding: 15px;
             }
 
             footer a {
@@ -216,9 +205,9 @@
         }
 
         @media (max-width: 480px) {
-            #technologies .tech-item {
-                width: 100%; /* Full width for small screens */
-                margin: 5px 0;
+            header img {
+                width: 120px;
+                height: 120px;
             }
 
             header h1 {
@@ -237,13 +226,26 @@
                 font-size: 14px;
             }
 
-            #stats img {
-                width: 100%; /* Full width for stats on mobile */
-                max-width: 100%; /* Ensure full width */
+            #technologies h2 {
+                font-size: 22px;
+            }
+
+            .tech-item {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            footer {
+                padding: 10px;
             }
 
             footer a {
                 font-size: 12px;
+            }
+
+            footer a img {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
@@ -317,14 +319,40 @@
             const statsSection = document.createElement('section');
             statsSection.id = "stats";
             statsSection.innerHTML = `
-                <h2>My GitHub Stats</h2>
-                <div class="github-stats">
-                    <!-- Add GitHub stats here -->
-                </div>
+                <h2>My GitHub Stats 🏆</h2>
+
+                <!-- Lenguajes más utilizados -->
+                <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Maurux01&show_icons=true&locale=en&layout=compact&hide_border=true" alt="Maurux01" /></p>
+
+                <!-- Estadísticas generales -->
+                <p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Maurux01&show_icons=true&locale=en&count_private=true&hide_border=true" alt="Maurux01" /></p>
+
+                <!-- Racha de contribuciones -->
+                <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Maurux01&theme=radical&hide_border=true" alt="Maurux01" /></p>
+
+                <!-- Contador de vistas del perfil -->
+                <p align="center">
+                    <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
+                </p>
             `;
             root.appendChild(statsSection);
+
+            // Footer Section
+            const footer = document.createElement('footer');
+            footer.innerHTML = `
+                <a href="https://linkedin.com/in/infmauro" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn">
+                    LinkedIn
+                </a> |
+                <a href="https://github.com/Maurux01" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                    GitHub
+                </a>
+            `;
+            root.appendChild(footer);
         }
 
+        // Run the render function
         renderPersonalCV();
     </script>
 </body>
