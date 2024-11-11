@@ -10,7 +10,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #121212; /* Fondo oscuro */
+            color: #ffffff; /* Texto claro */
         }
 
         /* Root container */
@@ -18,8 +19,8 @@
             margin: 0 auto;
             padding: 20px;
             max-width: 1200px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #1e1e1e; /* Fondo oscuro para el contenedor principal */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
         }
 
@@ -55,7 +56,7 @@
 
         /* About section */
         #about {
-            background-color: white;
+            background-color: #2a2a2a; /* Fondo oscuro */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-top: -40px;
             padding: 40px 20px;
@@ -66,14 +67,14 @@
         #about h2 {
             font-size: 28px;
             font-weight: bold;
-            color: #333;
+            color: #f2f2f2;
             text-transform: uppercase;
             margin-bottom: 20px;
         }
 
         #about p {
             font-size: 18px;
-            color: #555;
+            color: #dddddd;
         }
 
         #about a {
@@ -83,7 +84,7 @@
 
         /* Technologies section */
         #technologies {
-            background-color: #eaf4fc;
+            background-color: #333333; /* Fondo oscuro */
             padding: 40px 20px;
             border-radius: 10px;
             text-align: center;
@@ -93,14 +94,14 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 30px;
-            color: #003366;
+            color: #ffffff;
         }
 
         #technologies .tech-item {
             display: inline-block;
             padding: 20px;
             margin: 10px;
-            background-color: white;
+            background-color: #444444;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -122,6 +123,7 @@
             margin-top: 10px;
             font-size: 16px;
             font-weight: bold;
+            color: #ffffff;
         }
 
         /* Stats section */
@@ -137,7 +139,7 @@
 
         /* Footer */
         footer {
-            background-color: #333;
+            background-color: #2c2c2c; /* Fondo oscuro */
             color: white;
             text-align: center;
             padding: 20px;
@@ -155,7 +157,6 @@
             text-decoration: underline;
         }
 
-        /* Icon style */
         footer a img {
             width: 30px;
             height: 30px;
@@ -288,9 +289,9 @@
             aboutSection.innerHTML = `
                 <h2>About me</h2>
                 <div class="info">
-                    <p>🌱 Learning <strong>machine learning</strong></p>
-                    <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
-                    <p>📫 Contact me at <a href="mailto:maurofel36@gmail.com">maurofel36@gmail.com</a></p>
+                    <p>🌱 I am passionate about technology and always eager to learn new things, especially in programming and web development.</p>
+                    <p>👯 I enjoy collaborating with others, learning from their experiences and sharing mine.</p>
+                    <p>💬 Feel free to reach out to me!</p>
                     <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" target="_blank">Download CV</a></p>
                 </div>
             `;
@@ -341,7 +342,7 @@
             const footer = document.createElement('footer');
             footer.innerHTML = `
                 <a href="https://linkedin.com/in/infmauro" target="_blank">
-                    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn">
+                    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=ffffff" alt="LinkedIn">
                     LinkedIn
                 </a> |
                 <a href="https://github.com/Maurux01" target="_blank">
