@@ -131,35 +131,11 @@
         #stats {
             padding: 40px 20px;
             text-align: center;
-            margin-top: 40px;
         }
 
-        .github-stats {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            background-color: #444444;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 120px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .stat p {
-            color: #ffffff;
-            font-size: 14px;
-            margin-top: 10px;
+        #stats img {
+            margin: 10px;
+            border-radius: 5px;
         }
 
         /* Footer */
@@ -235,16 +211,6 @@
                 margin: 10px 5px;
             }
 
-            #stats .github-stats {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .stat {
-                width: 90%;
-                margin-bottom: 10px;
-            }
-
             footer {
                 padding: 15px;
             }
@@ -316,20 +282,22 @@
             { name: 'Angular', src: 'https://angular.io/assets/images/logos/angular/angular.svg' },
             { name: 'CSS3', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg' },
             { name: 'JavaScript', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' },
-            { name: 'HTML5', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191e4d72ec0f411f28831767bc/icons/html5/html5-original-wordmark.svg' },
-            { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' },
+            { name: 'HTML5', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg' },
+            { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
+            { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg' },
             { name: 'React', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg' },
-            { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' }
+            { name: 'Java', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg' },
+            { name: 'MySQL', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg' },
         ];
 
-        // Función para renderizar el CV
+        // Renderizado de componentes
         function renderPersonalCV() {
             const root = document.getElementById('root');
-
+            
             // Header
             const header = document.createElement('header');
             header.innerHTML = `
-                <img src="https://avatars.githubusercontent.com/u/118150118?v=4" alt="Mauro Infante">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel.app/39fb540cb9fc9d46f54f1e8f405be552.jpg" alt="Mauro Infante">
                 <h1>Mauro Infante</h1>
                 <p>Industrial Engineer | Developer | Passionate about Web Technologies</p>
             `;
