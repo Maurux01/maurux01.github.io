@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         /* Root container */
@@ -21,6 +22,7 @@
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         /* Header */
@@ -31,6 +33,7 @@
             color: white;
             position: relative;
             z-index: 10;
+            transition: background 0.3s ease;
         }
 
         header img {
@@ -61,6 +64,7 @@
             padding: 40px 20px;
             border-radius: 10px;
             text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         #about h2 {
@@ -87,6 +91,7 @@
             padding: 40px 20px;
             border-radius: 10px;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         #technologies h2 {
@@ -143,6 +148,7 @@
             padding: 20px;
             margin-top: 40px;
             border-radius: 10px;
+            transition: background-color 0.3s ease;
         }
 
         footer a {
@@ -162,12 +168,75 @@
             vertical-align: middle;
             margin-right: 8px;
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #181818;
+            color: #e0e0e0;
+        }
+
+        #root.dark-mode {
+            background-color: #2d2d2d;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        header.dark-mode {
+            background: linear-gradient(45deg, #e54219b2, #4a57e7);
+        }
+
+        #about.dark-mode {
+            background-color: #333;
+            color: #ddd;
+        }
+
+        #technologies.dark-mode {
+            background-color: #2d2d2d;
+            color: #ddd;
+        }
+
+        footer.dark-mode {
+            background-color: #222;
+        }
+
+        /* Button to toggle dark mode */
+        #toggle-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4a57e7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #toggle-mode:hover {
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
+    <button id="toggle-mode">Toggle Dark Mode</button>
     <div id="root"></div>
 
     <script>
+        // Toggle dark mode functionality
+        const toggleButton = document.getElementById('toggle-mode');
+        const body = document.body;
+        const root = document.getElementById('root');
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            root.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            document.getElementById('about').classList.toggle('dark-mode');
+            document.getElementById('technologies').classList.toggle('dark-mode');
+            document.querySelector('footer').classList.toggle('dark-mode');
+        });
+
         // Datos de las tecnologías
         const technologies = [
             { name: 'Angular', src: 'https://angular.io/assets/images/logos/angular/angular.svg' },
@@ -190,9 +259,9 @@
             header.innerHTML = `
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perfil.jpg-3qI6BfhFqG3rP67BQ2lVqTiIfyP4El.jpeg" alt="Mauro Infante">
                 <h1>Mauro Infante</h1>
-               <p class="text-xl opacity-80 mt-2 animate-fade-in-delayed">
-   <strong>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</strong>
-</p>
+                <p class="text-xl opacity-80 mt-2 animate-fade-in-delayed">
+                    <strong>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</strong>
+                </p>
             `;
             root.appendChild(header);
 
@@ -202,20 +271,13 @@
             aboutSection.innerHTML = `
                 <h2>About me</h2>
                 <div class="info">
-                   <p>🌱 I’m currently learning <strong>Machine learning, and web development</strong></p>
-
-<p>👨‍💻 All of my projects are available at <a href="My github profile">https://github.com/Maurux01</a></p>
-
-<p>📝 I regularly read articles on <a href="https://daily.dev/es">https://app.daily.dev</a></p>
-
-<p>💬 Ask me about <strong>HTML, CSS, Java, JavaScript, and more</strong></p>
-
-<p>🎓 You can see my certificates here: <a href="https://drive.google.com/drive/folders/1Sq5hnD3T1hJmHeicdiXK0TyH4OPDFrV3">Coding certificates</a>/<a href="https://drive.google.com/drive/folders/1yW6YV73z90q1kUUwXLvQkCM7AZ8X2lTO">Other certificates</a></p>
-
-<p>📫 How to reach me: <strong>maurofel36@gmail.com</strong></p>
-
-<p>📄 Know about my experiences: <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view">My curriculum</a></p>
-
+                    <p>🌱 I’m currently learning <strong>Machine learning, and web development</strong></p>
+                    <p>👨‍💻 All of my projects are available at <a href="https://github.com/Maurux01">My GitHub</a></p>
+                    <p>📝 I regularly read articles on <a href="https://daily.dev/es">Daily.dev</a></p>
+                    <p>💬 Ask me about <strong>HTML, CSS, Java, JavaScript, and more</strong></p>
+                    <p>🎓 You can see my certificates here: <a href="https://drive.google.com/drive/folders/1Sq5hnD3T1hJmHeicdiXK0TyH4OPDFrV3">Coding certificates</a>/<a href="https://drive.google.com/drive/folders/1yW6YV73z90q1kUUwXLvQkCM7AZ8X2lTO">Other certificates</a></p>
+                    <p>📫 How to reach me: <strong>maurofel36@gmail.com</strong></p>
+                    <p>📄 Know about my experiences: <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view">My curriculum</a></p>
                 </div>
             `;
             root.appendChild(aboutSection);
@@ -243,21 +305,17 @@
             const statsSection = document.createElement('section');
             statsSection.id = "stats";
             statsSection.innerHTML = `
-<h2>My GitHub Stats 🏆</h2>
-
-<!-- Lenguajes más utilizados -->
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Maurux01&show_icons=true&locale=en&layout=compact&hide_border=true" alt="Maurux01" /></p>
-
-<!-- Estadísticas generales -->
-<p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Maurux01&show_icons=true&locale=en&count_private=true&hide_border=true" alt="Maurux01" /></p>
-
-<!-- Racha de contribuciones -->
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Maurux01&theme=radical&hide_border=true" alt="Maurux01" /></p>
-
-<!-- Contador de vistas del perfil -->
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
-</p>
+                <h2>My GitHub Stats 🏆</h2>
+                <!-- Lenguajes más utilizados -->
+                <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Maurux01&show_icons=true&locale=en&layout=compact&hide_border=true" alt="Maurux01" /></p>
+                <!-- Estadísticas generales -->
+                <p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Maurux01&show_icons=true&locale=en&count_private=true&hide_border=true" alt="Maurux01" /></p>
+                <!-- Racha de contribuciones -->
+                <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Maurux01&theme=radical&hide_border=true" alt="Maurux01" /></p>
+                <!-- Contador de vistas del perfil -->
+                <p align="center">
+                    <img src="https://komarev.com/ghpvc/?username=Maurux01&label=Profile%20views&color=ef0515&style=flat" alt="Maurux01" />
+                </p>
             `;
             root.appendChild(statsSection);
 
@@ -275,10 +333,8 @@
             `;
             root.appendChild(footer);
         }
-<h2>Reproductor de Audio</h2>
-    <audio>
-        <source src="https://draw.audio/s/2s5ffmw7y" type="audio/mpeg">
-    </audio>
+       
+
         // Run the render function
         renderPersonalCV();
     </script>
