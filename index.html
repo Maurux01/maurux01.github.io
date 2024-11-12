@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -172,7 +172,7 @@
 
         /* Footer */
         footer {
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             color: #333333;
             text-align: center;
             padding: 20px;
@@ -186,19 +186,25 @@
             font-weight: bold;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 10px;
-            transition: color 0.3s ease;
+            margin: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         footer a:hover {
-            color: #0077b5;
+            background-color: #e0e0e0;
+            color: #0056b3;
         }
 
         footer a img {
-            width: 30px;
-            height: 30px;
-            vertical-align: middle;
+            width: 24px;
+            height: 24px;
             margin-right: 8px;
+            filter: none;
         }
 
         /* Agregar variables CSS para los colores */
@@ -804,6 +810,8 @@
             display: inline-flex;
             align-items: center;
             transition: all 0.3s ease;
+            width: 150px;
+            justify-content: center;
         }
 
         footer a.linkedin {
@@ -818,6 +826,7 @@
             box-shadow: 0 0 10px #333,
                         0 0 20px #333,
                         0 0 40px #333;
+            color: #fff !important;
         }
 
         footer a:hover {
