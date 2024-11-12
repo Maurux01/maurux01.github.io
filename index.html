@@ -10,7 +10,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
 
         /* Root container */
@@ -18,7 +19,7 @@
             margin: 0 auto;
             padding: 20px;
             max-width: 1200px;
-            background-color: white;
+            background-color: var(--card-bg);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
@@ -40,12 +41,38 @@
             border: 4px solid white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;
+            animation: fadeInScale 1s ease-out;
+            transition: all 0.3s ease;
+            backface-visibility: visible;
+        }
+
+        header img:hover {
+            animation: rotateAndGlow 3s ease-in-out infinite;
+            transform: scale(1.1);
+            border-color: #4a57e7;
+            cursor: pointer;
         }
 
         header h1 {
             font-size: 36px;
             font-weight: bold;
             letter-spacing: 1px;
+            animation: slideInLeft 1s ease-out forwards;
+            margin-bottom: 10px;
+        }
+
+        header .title-container {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        header .title-text {
+            display: inline-block;
+            position: relative;
+            font-size: 18px;
+            white-space: nowrap;
+            animation: slideInRight 1s ease-out forwards;
+            margin-top: 10px;
         }
 
         header p {
@@ -55,7 +82,7 @@
 
         /* About section */
         #about {
-            background-color: white;
+            background-color: var(--card-bg);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-top: -40px;
             padding: 40px 20px;
@@ -66,14 +93,14 @@
         #about h2 {
             font-size: 28px;
             font-weight: bold;
-            color: #333;
+            color: var(--text-color);
             text-transform: uppercase;
             margin-bottom: 20px;
         }
 
         #about p {
             font-size: 18px;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         #about a {
@@ -83,7 +110,7 @@
 
         /* Technologies section */
         #technologies {
-            background-color: #eaf4fc;
+            background-color: var(--tech-bg);
             padding: 40px 20px;
             border-radius: 10px;
             text-align: center;
@@ -100,10 +127,11 @@
             display: inline-block;
             padding: 20px;
             margin: 10px;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-color);
         }
 
         #technologies .tech-item:hover {
@@ -162,6 +190,739 @@
             vertical-align: middle;
             margin-right: 8px;
         }
+
+        /* Agregar variables CSS para los colores */
+        :root {
+            --bg-color: #f0f0f0;
+            --card-bg: white;
+            --text-color: #333;
+            --text-secondary: #555;
+            --tech-bg: #eaf4fc;
+        }
+
+        /* Modo oscuro */
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #ffffff;
+            --text-secondary: #cccccc;
+            --tech-bg: #363636;
+        }
+
+        /* Agregar botón de cambio de tema */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background: var(--card-bg);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .toggle-circle {
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 5px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .toggle-circle {
+            left: 45px;
+            background: #333;
+        }
+
+        .theme-toggle .icon {
+            font-size: 1.2rem;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle .sun {
+            right: 10px;
+        }
+
+        .theme-toggle .moon {
+            left: 10px;
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: #555;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon {
+            opacity: 1;
+        }
+
+        /* Agregar estos keyframes al inicio de la sección de estilos */
+        @keyframes profilePicture {
+            0% {
+                transform: scale(1.1)
+            }
+            50% {
+                transform: scale(1.1)
+            }
+            100% {
+                transform: scale(1.1)
+            }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Agregar un efecto de brillo */
+        @keyframes shine {
+            0% {
+                background-position: -100% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        header img {
+            position: relative;
+        }
+
+        header img::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 45%,
+                rgba(255, 255, 255, 0.3) 48%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.3) 52%,
+                transparent 55%
+            );
+            background-size: 200% auto;
+            animation: shine 4s infinite linear;
+            pointer-events: none;
+        }
+
+        /* Actualizar los keyframes y estilos de la imagen */
+        @keyframes rotateAndGlow {
+            0% {
+                transform: scale(1.1) perspective(1000px) rotateY(0deg);
+                box-shadow: 0 0 15px rgba(74, 87, 231, 0.5),
+                           0 0 30px rgba(74, 87, 231, 0.3);
+            }
+            50% {
+                transform: scale(1.1) perspective(1000px) rotateY(180deg);
+                box-shadow: 0 0 25px rgba(229, 66, 25, 0.5),
+                           0 0 50px rgba(229, 66, 25, 0.3);
+            }
+            100% {
+                transform: scale(1.1) perspective(1000px) rotateY(360deg);
+                box-shadow: 0 0 15px rgba(74, 87, 231, 0.5),
+                           0 0 30px rgba(74, 87, 231, 0.3);
+            }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: fadeInScale 1s ease-out;
+            transition: all 0.3s ease;
+            backface-visibility: visible;
+        }
+
+        header img:hover {
+            animation: profilePicture 3s ease-in-out infinite;
+            transform: scale(1.1);
+            border-color: #4a57e7;
+            cursor: pointer;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* About section */
+        #about {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: -40px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--text-color);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        #about a {
+            color: #1e90ff;
+            font-weight: bold;
+        }
+
+        /* Technologies section */
+        #technologies {
+            background-color: var(--tech-bg);
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #technologies h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #003366;
+        }
+
+        #technologies .tech-item {
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-color);
+        }
+
+        #technologies .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #technologies img {
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #technologies p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Stats section */
+        #stats {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #stats img {
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        footer a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Icon style */
+        footer a img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* Agregar variables CSS para los colores */
+        :root {
+            --bg-color: #f0f0f0;
+            --card-bg: white;
+            --text-color: #333;
+            --text-secondary: #555;
+            --tech-bg: #eaf4fc;
+        }
+
+        /* Modo oscuro */
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #ffffff;
+            --text-secondary: #cccccc;
+            --tech-bg: #363636;
+        }
+
+        /* Agregar botón de cambio de tema */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background: var(--card-bg);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .toggle-circle {
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 5px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .toggle-circle {
+            left: 45px;
+            background: #333;
+        }
+
+        .theme-toggle .icon {
+            font-size: 1.2rem;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle .sun {
+            right: 10px;
+        }
+
+        .theme-toggle .moon {
+            left: 10px;
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: #555;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon {
+            opacity: 1;
+        }
+
+        /* Agregar estos keyframes al inicio de la sección de estilos */
+        @keyframes profilePicture {
+            0% {
+                transform: scale(1.1)
+            }
+            50% {
+                transform: scale(1.1)
+            }
+            100% {
+                transform: scale(1.1)
+            }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Agregar un efecto de brillo */
+        @keyframes shine {
+            0% {
+                background-position: -100% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        header img {
+            position: relative;
+        }
+
+        header img::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 45%,
+                rgba(255, 255, 255, 0.3) 48%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.3) 52%,
+                transparent 55%
+            );
+            background-size: 200% auto;
+            animation: shine 4s infinite linear;
+            pointer-events: none;
+        }
+
+        /* Efecto de partículas alrededor */
+        @keyframes particleMove {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #4a57e7;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Agregar nuevas animaciones para el texto */
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Estilos para el texto del header */
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            animation: slideInLeft 1s ease-out forwards;
+            margin-bottom: 10px;
+        }
+
+        header .title-container {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        header .title-text {
+            display: inline-block;
+            position: relative;
+            font-size: 18px;
+            white-space: nowrap;
+            animation: slideInRight 1s ease-out forwards;
+            margin-top: 10px;
+        }
+
+        /* Animaciones para los títulos */
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Estilos para los títulos */
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            animation: slideInLeft 1s ease-out forwards;
+            margin-bottom: 10px;
+        }
+
+        header .title-container {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        header .title-text {
+            display: inline-block;
+            position: relative;
+            font-size: 18px;
+            white-space: nowrap;
+            animation: slideInRight 1s ease-out forwards;
+            margin-top: 10px;
+        }
+
+        /* Estilos neón para los enlaces del footer */
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        footer a.linkedin {
+            background: #0077b5;
+            box-shadow: 0 0 10px #0077b5,
+                        0 0 20px #0077b5,
+                        0 0 40px #0077b5;
+        }
+
+        footer a.github {
+            background: #333;
+            box-shadow: 0 0 10px #333,
+                        0 0 20px #333,
+                        0 0 40px #333;
+        }
+
+        footer a:hover {
+            transform: translateY(-5px);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        footer a.linkedin:hover {
+            box-shadow: 0 0 20px #0077b5,
+                        0 0 40px #0077b5,
+                        0 0 80px #0077b5;
+        }
+
+        footer a.github:hover {
+            box-shadow: 0 0 20px #333,
+                        0 0 40px #333,
+                        0 0 80px #333;
+        }
+
+        /* Estilos para los iconos */
+        footer a img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover img {
+            transform: rotate(360deg);
+        }
+
+        /* Estilos para los enlaces de tecnologías */
+        .tech-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item {
+            position: relative;
+            overflow: visible;
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-item img {
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip para indicar que es clickeable */
+        .tech-item::after {
+            content: 'Click to learn more';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        .tech-item:hover::after {
+            bottom: -5px;
+            opacity: 1;
+            animation: tooltipAppear 1s ease-out;
+        }
+
+        @keyframes tooltipAppear {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* Ajustar el contenedor para evitar saltos */
+        #technologies .tech-container {
+            padding-bottom: 30px;
+        }
+
+        /* Asegurar que el tooltip no interfiera con otros elementos */
+        .tech-item {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -170,15 +931,51 @@
     <script>
         // Datos de las tecnologías
         const technologies = [
-            { name: 'Angular', src: 'https://angular.io/assets/images/logos/angular/angular.svg' },
-            { name: 'CSS3', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg' },
-            { name: 'JavaScript', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' },
-            { name: 'HTML5', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg' },
-            { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
-            { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg' },
-            { name: 'React', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg' },
-            { name: 'Java', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg' },
-            { name: 'MySQL', src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg' },
+            { 
+                name: 'Angular', 
+                src: 'https://angular.io/assets/images/logos/angular/angular.svg',
+                url: 'https://angular.io/'
+            },
+            { 
+                name: 'CSS3', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg',
+                url: 'https://www.w3schools.com/css/css_intro.asp'
+            },
+            { 
+                name: 'JavaScript', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
+                url: 'https://aws.amazon.com/what-is/javascript/?nc1=h_ls'
+            },
+            { 
+                name: 'HTML5', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg',
+                url: 'https://www.w3schools.com/html/html_intro.asp'
+            },
+            { 
+                name: 'Python', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg',
+                url: 'https://www.python.org'
+            },
+            { 
+                name: 'Node.js', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg',
+                url: 'https://nodejs.org/'
+            },
+            { 
+                name: 'React', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg',
+                url: 'https://reactjs.org/'
+            },
+            { 
+                name: 'Java', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg',
+                url: 'https://www.java.com'
+            },
+            { 
+                name: 'MySQL', 
+                src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg',
+                url: 'https://www.mysql.com/'
+            }
         ];
 
         // Renderizado de componentes
@@ -190,11 +987,48 @@
             header.innerHTML = `
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perfil.jpg-3qI6BfhFqG3rP67BQ2lVqTiIfyP4El.jpeg" alt="Mauro Infante">
                 <h1>Mauro Infante</h1>
-               <p class="text-xl opacity-80 mt-2 animate-fade-in-delayed">
-   <strong>Industrial Engineer | Focus on Quality Assurance | In process to be web developer</strong>
-</p>
+                <div class="title-container">
+                    <p class="title-text">
+                        <span class="role">Industrial Engineer</span>
+                        <span class="separator">|</span>
+                        <span class="role">Jr Software Engineer</span>
+                        <span class="separator">|</span>
+                        <span class="role">Quality Assurance</span>
+                    </p>
+                </div>
             `;
             root.appendChild(header);
+
+            // Agregar dentro de la función renderPersonalCV, después de crear la imagen
+            const profileImg = header.querySelector('img');
+            profileImg.addEventListener('mouseover', createParticles);
+
+            function createParticles() {
+                for (let i = 0; i < 15; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    // Posición inicial (alrededor de la imagen)
+                    const angle = (Math.random() * Math.PI * 2);
+                    const radius = 75; // La mitad del ancho de la imagen
+                    particle.style.left = `${profileImg.offsetLeft + profileImg.offsetWidth/2}px`;
+                    particle.style.top = `${profileImg.offsetTop + profileImg.offsetHeight/2}px`;
+                    
+                    // Dirección aleatoria
+                    const x = Math.cos(angle) * (Math.random() * 100 + 50);
+                    const y = Math.sin(angle) * (Math.random() * 100 + 50);
+                    particle.style.setProperty('--x', `${x}px`);
+                    particle.style.setProperty('--y', `${y}px`);
+                    
+                    // Animación
+                    particle.style.animation = `particleMove ${Math.random() * 1 + 0.5}s ease-out forwards`;
+                    
+                    header.appendChild(particle);
+                    
+                    // Limpiar partículas
+                    setTimeout(() => particle.remove(), 2000);
+                }
+            }
 
             // About Section
             const aboutSection = document.createElement('section');
@@ -219,12 +1053,15 @@
                 <div class="tech-container"></div>
             `;
             const techContainer = techSection.querySelector('.tech-container');
-            technologies.forEach(tech => {
+            technologies.forEach((tech, index) => {
                 const techItem = document.createElement('div');
                 techItem.className = 'tech-item';
+                techItem.style.animationDelay = `${0.1 * index}s`;
                 techItem.innerHTML = `
-                    <img src="${tech.src}" alt="${tech.name}">
-                    <p>${tech.name}</p>
+                    <a href="${tech.url}" target="_blank" class="tech-link">
+                        <img src="${tech.src}" alt="${tech.name}">
+                        <p>${tech.name}</p>
+                    </a>
                 `;
                 techContainer.appendChild(techItem);
             });
@@ -255,12 +1092,12 @@
             // Footer Section
             const footer = document.createElement('footer');
             footer.innerHTML = `
-                <a href="https://linkedin.com/in/infmauro" target="_blank">
-                    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn">
+                <a href="https://linkedin.com/in/infmauro" target="_blank" class="linkedin">
+                    <img src="https://img.icons8.com/?size=100&id=447&format=png&color=000000" alt="LinkedIn">
                     LinkedIn
-                </a> |
-                <a href="https://github.com/Maurux01" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                </a>
+                <a href="https://github.com/Maurux01" target="_blank" class="github">
+                    <img src="https://img.icons8.com/?size=100&id=lkh3AbJLmFpp&format=png&color=000000" alt="GitHub">
                     GitHub
                 </a>
             `;
@@ -269,6 +1106,40 @@
 
         // Run the render function
         renderPersonalCV();
+
+        // Agregar botón de cambio de tema
+        function addThemeToggle() {
+            const button = document.createElement('button');
+            button.className = 'theme-toggle';
+            button.innerHTML = `
+                <div class="toggle-circle"></div>
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+            `;
+            
+            // Verificar el tema guardado
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+
+            // Manejar el click del botón
+            button.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            document.body.appendChild(button);
+        }
+
+        // Asegúrate de llamar a esta función después de renderizar el CV
+        addThemeToggle();
     </script>
 </body>
 </html>
