@@ -991,7 +991,202 @@
                 max-width: 300px;
             }
         }
+
+        /* Estilos para los títulos neón */
+        .neon-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 20px 0;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #58A6FF,
+                0 0 20px #58A6FF,
+                0 0 25px #58A6FF;
+            animation: neonPulse 1.5s infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #58A6FF,
+                    0 0 20px #58A6FF;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #58A6FF,
+                    0 0 20px #58A6FF,
+                    0 0 25px #58A6FF,
+                    0 0 30px #58A6FF;
+            }
+        }
+
+        /* Ajustar los títulos existentes */
+        .about-title,
+        .technologies-title,
+        .stats-title {
+            font-size: 2rem !important;
+            text-transform: uppercase !important;
+        }
+
+        /* Estilo general para títulos neón */
+        .neon-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 20px 0;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #58A6FF,
+                0 0 20px #58A6FF;
+        }
+
+        /* Estilo específico y mejorado para TECHNOLOGIES */
+        .technologies-title {
+            font-size: 2rem;
+            font-family: 'Arial', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-align: center;
+            letter-spacing: 3px;
+            padding: 20px 0;
+            text-shadow: 
+                0 0 1px #FFFFFF,
+                0 0 2px #FFFFFF,
+                0 0 3px #58A6FF,
+                0 0 4px #58A6FF;
+            animation: neonPulse 1.5s infinite alternate;
+            position: relative;
+        }
+
+        /* Animación de pulso neón */
+        @keyframes neonPulse {
+            from {
+                text-shadow: 
+                    0 0 2px #FFFFFF,
+                    0 0 4px #FFFFFF,
+                    0 0 6px #58A6FF,
+                    0 0 8px #58A6FF,
+                    0 0 10px #58A6FF;
+            }
+            to {
+                text-shadow: 
+                    0 0 4px #FFFFFF,
+                    0 0 8px #FFFFFF,
+                    0 0 12px #58A6FF,
+                    0 0 16px #58A6FF,
+                    0 0 20px #58A6FF;
+            }
+        }
+
+        /* Asegurar que todos los títulos tengan el mismo estilo base */
+        .about-title,
+        .technologies-title,
+        .stats-title {
+            font-size: 2rem;
+            font-weight: 900;
+            animation: neonPulse 1.5s infinite alternate;
+        }
+
+        /* Ajustes responsive */
+        @media (max-width: 768px) {
+            .neon-title {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Contenedor de tecnologías */
+        .tech-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Estilo para cada tarjeta de tecnología */
+        .tech-card {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1/1; /* Hace que las tarjetas sean cuadradas */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para los íconos */
+        .tech-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+
+        /* Estilo para los nombres de tecnologías */
+        .tech-card p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tech-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .tech-card {
+                padding: 15px;
+            }
+
+            .tech-card img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .tech-card p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
+    <!-- Agregar estas meta tags en el <head> -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self' https://github-readme-stats.vercel.app https://github-profile-summary-cards.vercel.app https://github-readme-streak-stats.herokuapp.com; 
+                   img-src 'self' https: data:; 
+                   style-src 'self' 'unsafe-inline'; 
+                   script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
     <div id="root"></div>
@@ -1102,7 +1297,7 @@
             const aboutSection = document.createElement('section');
             aboutSection.id = "about";
             aboutSection.innerHTML = `
-                <h2>About me</h2>
+                <h2 class="neon-title about-title">ABOUT ME</h2>
                 <div class="info">
                     <p>🌱 Learning <strong>machine learning</strong></p>
                     <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
@@ -1117,7 +1312,7 @@
             const techSection = document.createElement('section');
             techSection.id = "technologies";
             techSection.innerHTML = `
-                <h2>Technologies</h2>
+                <h2 class="technologies-title">TECHNOLOGIES</h2>
                 <div class="tech-container"></div>
             `;
             const techContainer = techSection.querySelector('.tech-container');
@@ -1139,9 +1334,9 @@
             const statsSection = document.createElement('section');
             statsSection.id = "stats";
             statsSection.innerHTML = `
+                <h2 class="neon-title stats-title">MY GITHUB STATS 🏆</h2>
+                
                 <div class="github-stats-container">
-                    <h2 class="stats-title">My GitHub Stats 🏆</h2>
-                    
                     <div class="github-stats">
                         <!-- Lenguajes más usados -->
                         <div class="stats-card">
@@ -1258,6 +1453,15 @@
             } catch (error) {
                 console.error('Error al obtener los lenguajes de GitHub:', error);
             }
+        }
+
+        function createTechCard(tech) {
+            return `
+                <div class="tech-card">
+                    <img src="${tech.icon}" alt="${tech.name}">
+                    <p>${tech.name}</p>
+                </div>
+            `;
         }
     </script>
     <h1></h1>
