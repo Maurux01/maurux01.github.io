@@ -120,7 +120,14 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 30px;
-            color: #003366;
+            color: #fff;
+        }
+
+        /* Estilos para modo oscuro */
+        @media (prefers-color-scheme: dark) {
+            #technologies h2 {
+                color: #e6f6ea;
+            }
         }
 
         #technologies .tech-item {
@@ -174,7 +181,7 @@
         }
 
         footer a {
-            color: #1e90ff;
+            color: #7a91a8;
             text-decoration: none;
             font-weight: bold;
         }
@@ -197,7 +204,7 @@
             --card-bg: white;
             --text-color: #333;
             --text-secondary: #555;
-            --tech-bg: #eaf4fc;
+            --tech-bg: #007be0;
         }
 
         /* Modo oscuro */
@@ -435,7 +442,7 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 30px;
-            color: #003366;
+            color: #f6f4e645;
         }
 
         #technologies .tech-item {
@@ -489,7 +496,7 @@
         }
 
         footer a {
-            color: #1e90ff;
+            color: #b8cde3;
             text-decoration: none;
             font-weight: bold;
         }
@@ -669,7 +676,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: #4a57e7;
+            background: #444b98;
             border-radius: 50%;
             pointer-events: none;
             opacity: 0;
@@ -1038,7 +1045,7 @@
                 <div class="info">
                     <p>🌱 Learning <strong>machine learning</strong></p>
                     <p>🫂 I seek to collaborate <strong>with other creators</strong></p>
-                    <li>👨‍💻 All of my projects are available at <a href="https://maurux01.github.io/">https://maurux01.github.io/</a></li>
+                    <p>👨‍💻 All of my projects are available at <a href="https://github.com/Maurux01">My profile</a></p>
                     <p>📫 Contact me at <a href="mailto:maurofel36@gmail.com">maurofel36@gmail.com</a></p>
                     <p>📄 Check out my experience at <a href="https://drive.google.com/file/d/1dUKl8Rr-nrBQQGTeQ4FCkBkCtt1WxAfg/view?usp=drive_link" target="_blank">Download CV</a></p>
                 </div>
@@ -1049,7 +1056,7 @@
             const techSection = document.createElement('section');
             techSection.id = "technologies";
             techSection.innerHTML = `
-                <h2>Tecnologies 🧑‍💻</h2>
+                <h2>Technologies</h2>
                 <div class="tech-container"></div>
             `;
             const techContainer = techSection.querySelector('.tech-container');
@@ -1141,5 +1148,6 @@
         // Asegúrate de llamar a esta función después de renderizar el CV
         addThemeToggle();
     </script>
+    <h1></h1>
 </body>
 </html>
