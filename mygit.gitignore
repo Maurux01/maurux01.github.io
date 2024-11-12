@@ -1,0 +1,21 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias
+/node_modules
+/vendor
+
+# Archivos de entorno
+.env
+.env.local
+
+# Archivos de IDE/Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de compilación
+/dist
+/build
