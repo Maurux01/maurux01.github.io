@@ -5,7 +5,7 @@ Welcome to my personal website, designed to showcase my projects, skills, and pr
 </p>
 
 <p align="justify">
-Follow this [link] (maurux01.github.io) to visit my website. Follow this repository to see ongoing updates and improvements. Thank you for your interest!
+Follow this [link](https://maurux01.github.io) to visit my website. Follow this repository to see ongoing updates and improvements. Thank you for your interest!
 </p>
 
 
