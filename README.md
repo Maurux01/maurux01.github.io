@@ -6,7 +6,8 @@ Bienvenido a mi sitio web personal, diseñado para compartir mis proyectos, habi
 </p>
 
 <p align="justify">
-Sigue este repositorio para ver actualizaciones y mejoras constantes. ¡Gracias por tu interés!, aqui esta el [link]https://maurux01.github.io
+Sigue este [link](https://maurux01.github.io) para ver mi sitio web. 
+Sigue este repositorio para ver actualizaciones y mejoras constantes. ¡Gracias por tu interés!
 </p>
 
 
