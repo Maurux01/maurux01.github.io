@@ -1,13 +1,11 @@
 # Maurux01.github.io
 
-
 <p align="justify">
-Bienvenido a mi sitio web personal, diseñado para compartir mis proyectos, habilidades y trayectoria profesional. Aquí encontrarás una muestra de mi experiencia en programación, así como mi CV y enlaces a otros perfiles relevantes. Este sitio es una plataforma en constante evolución donde documentaré mis aprendizajes y progreso en desarrollo web, seguridad informática y más.
+Welcome to my personal website, designed to showcase my projects, skills, and professional journey. Here, you'll find a sample of my programming experience, as well as my resume and links to other relevant profiles. This site is a constantly evolving platform where I document my learning and progress in web development, cybersecurity, and more.
 </p>
 
 <p align="justify">
-! Sigue este [link](https://maurux01.github.io) para ver mi sitio web. 
-Sigue este repositorio para ver actualizaciones y mejoras constantes. ¡Gracias por tu interés!
+Follow this [link](maurux01.github.io) to visit my website. Follow this repository to see ongoing updates and improvements. Thank you for your interest!
 </p>
 
 
