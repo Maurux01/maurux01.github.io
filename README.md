@@ -1,1 +1,1 @@
-maurux01.github.io/
+maurux01.github.io
