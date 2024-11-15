@@ -1289,54 +1289,67 @@ if (!Security::verifySecurityHeaders()) {
     <div id="root"></div>
 
     <script>
-        // Datos de las tecnologías
-        const technologies = [
-            { 
-                name: 'Angular', 
-                src: 'https://angular.io/assets/images/logos/angular/angular.svg',
-                url: 'https://angular.io/'
-            },
-            { 
-                name: 'CSS3', 
-                src: 'https://cdn-icons-png.flaticon.com/128/5968/5968242.png',
-                url: 'https://www.w3schools.com/css/css_intro.asp'
-            },
-            { 
-                name: 'JavaScript', 
-                src: 'https://img.icons8.com/?size=256&id=108784&format=png',
-                url: 'https://aws.amazon.com/what-is/javascript/?nc1=h_ls'
-            },
-            { 
-                name: 'HTML5', 
-                src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg',
-                url: 'https://www.w3schools.com/html/html_intro.asp'
-            },
-            { 
-                name: 'Python', 
-                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg',
-                url: 'https://www.python.org'
-            },
-            { 
-                name: 'Node.js', 
-                src: 'https://cdn-icons-png.flaticon.com/128/919/919825.png',
-                url: 'https://nodejs.org/'
-            },
-            { 
-                name: 'React', 
-                src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg',
-                url: 'https://reactjs.org/'
-            },
-            { 
-                name: 'Java', 
-                src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg',
-                url: 'https://www.java.com'
-            },
-            { 
-                name: 'MySQL', 
-                src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg',
-                url: 'https://www.mysql.com/'
-            } 
-        ];
+        const app = Vue.createApp({
+            data() {
+                return {
+                    technologies: [
+                        { 
+                            name: 'Angular', 
+                            src: 'https://angular.io/assets/images/logos/angular/angular.svg',
+                            url: 'https://angular.io/'
+                        },
+                        { 
+                            name: 'CSS3', 
+                            src: 'https://cdn-icons-png.flaticon.com/128/5968/5968242.png',
+                            url: 'https://www.w3schools.com/css/css_intro.asp'
+                        },
+                        { 
+                            name: 'JavaScript', 
+                            src: 'https://img.icons8.com/?size=256&id=108784&format=png',
+                            url: 'https://aws.amazon.com/what-is/javascript/?nc1=h_ls'
+                        },
+                        { 
+                            name: 'HTML5', 
+                            src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/html5/html5-original-wordmark.svg',
+                            url: 'https://www.w3schools.com/html/html_intro.asp'
+                        },
+                        { 
+                            name: 'Python', 
+                            src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg',
+                            url: 'https://www.python.org'
+                        },
+                        { 
+                            name: 'Node.js', 
+                            src: 'https://cdn-icons-png.flaticon.com/128/919/919825.png',
+                            url: 'https://nodejs.org/'
+                        },
+                        { 
+                            name: 'React', 
+                            src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg',
+                            url: 'https://reactjs.org/'
+                        },
+                        { 
+                            name: 'Java', 
+                            src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/java/java-original-wordmark.svg',
+                            url: 'https://www.java.com'
+                        },
+                        { 
+                            name: 'MySQL', 
+                            src: 'https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/mysql/mysql-original-wordmark.svg',
+                            url: 'https://www.mysql.com/'
+                        },
+                        { 
+                            name: 'Vue.js', 
+                            src: 'https://vuejs.org/images/logo.png',
+                            url: 'https://vuejs.org/'
+                        }
+                    ]
+                };
+            }
+        });
+
+        app.mount('#app');
+    </script>
 
         // Renderizado de componentes
         function renderPersonalCV() {
