@@ -9,4 +9,4 @@ Follow this [link](https://maurux01.github.io) to visit my website. Follow this 
 </p>
 
 
-![Mauro Infante](https://github.com/user-attachments/assets/7d7bf3da-0a9b-4354-83ee-88f557416e34)
+
