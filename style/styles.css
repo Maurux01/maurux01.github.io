@@ -1,4 +1,4 @@
-style>
+
         /* General styles */
         body {
             font-family: Arial, sans-serif;
@@ -1259,4 +1259,4 @@ style>
             border-radius: 50%;
             animation: moveParticle 15s infinite linear;
         }
-    </style>
+   

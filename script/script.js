@@ -1,4 +1,4 @@
-<script>
+
         // Datos de las tecnologías
         const technologies = [
             { 
@@ -270,5 +270,4 @@
                 </div>
             `;
         }
-    </script>
-
+ 
