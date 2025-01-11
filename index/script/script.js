@@ -176,16 +176,24 @@
             // Footer Section
             const footer = document.createElement('footer');
             footer.innerHTML = `
-                <a href="https://linkedin.com/in/infmauro" target="_blank" class="linkedin">
-                    <img src="https://img.icons8.com/?size=100&id=447&format=png&color=000000" alt="LinkedIn">
-                    LinkedIn
-                </a>
-                <a href="https://github.com/Maurux01" target="_blank" class="github">
-                    <img src="https://img.icons8.com/?size=100&id=lkh3AbJLmFpp&format=png&color=000000" alt="GitHub">
-                    GitHub
-                </a>
-            `;
-            root.appendChild(footer);
+               <a href="https://linkedin.com/in/infmauro" target="_blank" class="linkedin">
+        <img src="https://img.icons8.com/?size=100&id=447&format=png&color=000000" alt="LinkedIn">
+        LinkedIn
+    </a>
+    <a href="https://github.com/Maurux01" target="_blank" class="github">
+        <img src="https://img.icons8.com/?size=100&id=lkh3AbJLmFpp&format=png&color=000000" alt="GitHub">
+        GitHub
+    </a>
+    <a href="https://x.com/maufel2" target="_blank" class="x-account">
+        <img src="https://img.icons8.com/?size=100&id=QBhHi9qqzZ9H&format=png&color=000000" alt="X">
+        X (maufel2)
+    </a>
+   <a href="https://stackoverflow.com/users/28065944/mauro-infante" target="_blank" class="stackoverflow">
+        <img src="https://img.icons8.com/?size=100&id=ZNeHFS2n1kKe&format=png&color=000000" alt="Stack Overflow">
+        Stack Overflow
+    </a>
+`;
+document.body.appendChild(footer);
         }
 
         // Run the render function
