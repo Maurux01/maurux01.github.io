@@ -143,33 +143,36 @@
             statsSection.innerHTML = `
                 <h2 class="neon-title stats-title">MY GITHUB STATS 🏆</h2>
                 
-                <div class="github-stats-container">
-                    <div class="github-stats">
-                        <!-- Lenguajes más usados -->
-                        <div class="stats-card">
-                            <a href="https://github.com/Maurux01" target="_blank">
-                                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=maurux01&layout=compact&theme=radical&bg_color=0D1117&title_color=58A6FF&text_color=FFFFFF&icon_color=58A6FF&border_color=30363D" 
-                                     alt="Most Used Languages">
-                            </a>
-                        </div>
+               <!-- GitHub Stats Container -->
+<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin: 2rem 0">
 
-                        <!-- Estadísticas generales -->
-                        <div class="stats-card">
-                            <a href="https://github.com/Maurux01" target="_blank">
-                                <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=maurux01&theme=github_dark" 
-                                     alt="GitHub Stats" />
-                            </a>
-                        </div>
+  <!-- Top Languages Card -->
+  <div style="flex: 1 1 300px">
+    <a href="https://github.com/Maurux01" target="_blank">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=maurux01&layout=compact&theme=radical&bg_color=0D1117&title_color=58A6FF&text_color=FFFFFF&icon_color=58A6FF&border_color=30363D&v=2" 
+           alt="Top Languages"
+           style="width: 100%; height: auto">
+    </a>
+  </div>
 
-                        <!-- Estadísticas de contribuciones -->
-                        <div class="stats-card">
-                            <a href="https://github.com/Maurux01" target="_blank">
-                                <img src="https://github-readme-streak-stats.herokuapp.com/?user=maurux01&theme=dark&hide_border=true" 
-                                     alt="GitHub Streak" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <!-- Stats Card -->
+  <div style="flex: 1 1 300px">
+    <a href="https://github.com/Maurux01" target="_blank">
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=maurux01&theme=github_dark&v=2" 
+           alt="GitHub Stats"
+           style="width: 100%; height: auto">
+    </a>
+  </div>
+
+  <!-- Streak Card -->
+  <div style="flex: 1 1 300px">
+    <a href="https://github.com/Maurux01" target="_blank">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=maurux01&theme=dark&hide_border=true&v=2" 
+           alt="GitHub Streak"
+           style="width: 100%; height: auto">
+    </a>
+  </div>
+</div>
             `;
             root.appendChild(statsSection);
 
